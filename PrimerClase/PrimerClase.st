@@ -1,4 +1,4 @@
-!classDefinition: #AlejandroElEncargado category: #PrimerClase!
+!classDefinition: #AlejandroElEncargado category: 'PrimerClase'!
 DenotativeObject subclass: #AlejandroElEncargado
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -7,17 +7,17 @@ DenotativeObject subclass: #AlejandroElEncargado
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'AlejandroElEncargado class' category: #PrimerClase!
+!classDefinition: 'AlejandroElEncargado class' category: 'PrimerClase'!
 AlejandroElEncargado class
 	instanceVariableNames: ''!
 
-!AlejandroElEncargado class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 21:28:46'!
+!AlejandroElEncargado class methodsFor: 'nil' stamp: 'MW 10/2/2020 13:42:09'!
 saludoCon: unSaludo
-
-	^unSaludo, ' Sergio'! !
+	
+	^unSaludo, ' Mirko'! !
 
 
-!classDefinition: #GuardiaDeSkyrim category: #PrimerClase!
+!classDefinition: #GuardiaDeSkyrim category: 'PrimerClase'!
 DenotativeObject subclass: #GuardiaDeSkyrim
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -26,31 +26,36 @@ DenotativeObject subclass: #GuardiaDeSkyrim
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'GuardiaDeSkyrim class' category: #PrimerClase!
+!classDefinition: 'GuardiaDeSkyrim class' category: 'PrimerClase'!
 GuardiaDeSkyrim class
 	instanceVariableNames: 'cantidadDeVecesQueHablaronConmigo'!
 
-!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 21:38:12'!
+!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'MW 10/2/2020 21:23:15'!
+arrayDeRespuestas
+
+	^#('Hola forastero' 'Que hay de nuevo?' 'Necesitas algo?' 'Creo que hoy hay descuento en la taberna' 'Ya quiero que sea el cambio de turno').! !
+
+!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'MW 10/2/2020 20:41:07'!
 contestar
+	
+	cantidadDeVecesQueHablaronConmigo > 5 ifTrue: [cantidadDeVecesQueHablaronConmigo := 5].
+	^self arrayDeRespuestas at: cantidadDeVecesQueHablaronConmigo.! !
 
-	^'Hola forastero'! !
-
-!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 21:42:04'!
+!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'MW 10/2/2020 14:23:45'!
 conversar
-
+	
 	self recordarQueConversaronConmigo.
-	^self contestar! !
+	^self contestar ! !
 
-!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 22:03:18'!
+!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'MW 10/2/2020 21:37:16'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
-	cantidadDeVecesQueHablaronConmigo := 2.! !
+	cantidadDeVecesQueHablaronConmigo := 0.! !
 
-!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 21:51:16'!
+!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'MW 10/2/2020 14:18:13'!
 recordarQueConversaronConmigo
-
-	cantidadDeVecesQueHablaronConmigo := cantidadDeVecesQueHablaronConmigo + 1.
-! !
+	
+	cantidadDeVecesQueHablaronConmigo := cantidadDeVecesQueHablaronConmigo + 1! !
 
 GuardiaDeSkyrim initializeAfterFileIn!
